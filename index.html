@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SSH | Sherzod Suvonov</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent: #00d2ff;
+            --neon-blue: #00f2ff;
+            --glass: rgba(0, 0, 0, 0.8);
+        }
+
+        body {
+            margin: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #000; color: white; overflow-x: hidden;
+        }
+
+        /* Video/Image Background */
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://wallpaperaccess.com/full/21535.jpg'); /* Car/Tech style background */
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        header {
+            position: sticky; top: 0; background: rgba(0, 0, 0, 0.95);
+            padding: 20px; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--accent); z-index: 1000;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .ssh-logo {
+            font-weight: 900; font-size: 30px; letter-spacing: 5px; color: #fff;
+            text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        }
+
+        .lang-switch { display: flex; gap: 8px; }
+        .l-btn { border: 2px solid var(--accent); background: none; color: white; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .l-btn.active { background: var(--accent); color: #000; }
+
+        .container { width: 95%; max-width: 800px; margin: 40px auto; }
+
+        /* Profil Section */
+        .profile { text-align: center; margin-bottom: 60px; }
+        .profile img { 
+            width: 160px; height: 160px; border-radius: 50%; border: 5px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent); margin-bottom: 20px;
+        }
+
+        /* Button & Card Styles */
+        .main-card {
+            background: var(--glass); border: 2px solid #333; border-radius: 20px;
+            margin-bottom: 30px; overflow: hidden; transition: 0.4s;
+            text-decoration: none; color: white; display: block;
+        }
+
+        .main-card:hover { border-color: var(--accent); transform: scale(1.02); box-shadow: 0 0 40px rgba(0, 210, 255, 0.3); }
+
+        .card-header-img { width: 100%; height: 250px; background-size: cover; background-position: center; }
+
+        .card-body { padding: 25px; position: relative; }
+        .card-body h3 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-body p { color: #ccc; font-size: 15px; margin: 10px 0 20px; }
+
+        .action-btn { 
+            background: var(--accent); color: black; padding: 12px; text-align: center; 
+            font-weight: 900; border-radius: 10px; display: block; text-transform: uppercase;
+        }
+
+        /* Section Headings */
+        .section-title { 
+            font-size: 28px; font-weight: 900; margin: 50px 0 25px; 
+            text-align: center; border-bottom: 2px solid var(--accent); padding-bottom: 10px;
+        }
+
+        /* News / About Section (Kun.uz style but Senior) */
+        .news-box {
+            background: #fff; color: #000; padding: 30px; border-radius: 20px; margin-bottom: 40px;
+        }
+        .news-tag { background: #ed1c24; color: white; padding: 5px 10px; font-weight: 900; font-size: 12px; border-radius: 4px; }
+
+        /* Extra Links Grid */
+        .extra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .extra-item { 
+            background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; 
+            text-align: center; text-decoration: none; color: white; border: 1px solid #444;
+        }
+        .extra-item i { font-size: 40px; margin-bottom: 10px; color: var(--accent); }
+
+        footer { text-align: center; padding: 80px 0; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+<div class="bg-fixed"></div>
+
+<header>
+    <div class="ssh-logo">SSH BRAND</div>
+    <div class="lang-switch">
+        <button class="l-btn active" id="uz-btn" onclick="setLang('uz')">UZ</button>
+        <button class="l-btn" id="ru-btn" onclick="setLang('ru')">RU</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="profile">
+        <img src="rasm.jpg" alt="Sherzod Suvonov">
+        <h1 style="font-size: 40px; margin: 10px 0;">Sherzod Suvonov</h1>
+        <p id="bio" style="font-size: 18px; color: var(--accent); font-weight: bold;">Senior Full-Stack Developer</p>
+        <p><i class="fas fa-phone-alt"></i> +998 99 016 55 45</p>
+        <p style="font-size: 14px; opacity: 0.8;">Tashkent State University of Economics (TSUE)</p>
+    </div>
+
+    <h2 class="section-title" id="t-proj">ASOSIY LOYIHALAR</h2>
+
+    <a href="https://suvonov2310-a11y.github.io/SWA/" class="main-card">
+        <div class="card-header-img" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000');"></div>
+        <div class="card-body">
+            <h3 id="p1-t">SWA VIDEO PLATFORMA</h3>
+            <p id="p1-d">Yuqori sifatli video kontentlar va streaming olami.</p>
+            <div class="action-btn">TOMOSHA QILISH</div>
+        </div>
+    </a>
+
+    <a href="https://werrrzood.onrender.com" class="main-card">
+        <div class="card-header-img" style="background-image: url('https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=1000');"></div>
+        <div class="card-body">
+            <h3 id="p2-t">ONLINE SHASHKA</h3>
+            <p id="p2-d">Real-vaqtda multiplayer shashka o'yini va strategiya.</p>
+            <div class="action-btn">O'YINNI BOSHLASH</div>
+        </div>
+    </a>
+
+    <a href="https://t.me/ChatAl_gptBot" class="main-card">
+        <div class="card-header-img" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000');"></div>
+        <div class="card-body">
+            <h3 id="p3-t">CHAT AL GPT BOT</h3>
+            <p id="p3-d">Sun'iy intellekt asosida ishlovchi eng aqlli yordamchi.</p>
+            <div class="action-btn">BOTGA YOZISH</div>
+        </div>
+    </a>
+
+    <h2 class="section-title" id="t-news">OAVDA MEN HAQIMDA</h2>
+    <div class="news-box">
+        <div class="news-tag">KUN.UZ • MAXSUS</div>
+        <h2 id="n-h" style="margin: 15px 0;">Yosh dasturchi Sherzod Suvonovning IT olamidagi katta sakrashi!</h2>
+        <p id="n-p" style="line-height: 1.8; color: #333;">Kuni kecha Toshkent Davlat Iqtisodiyot Universiteti talabasi Sherzod Suvonov tomonidan yaratilgan yangi platformalar jamoatchilik e'tiborini tortdi. Dasturchi o'zining "SSH BRAND" ostidagi loyihalari bilan O'zbekiston IT eksportiga o'z hissasini qo'shmoqda...</p>
+        <div style="background: #000; color: #fff; padding: 15px; border-radius: 10px; text-align: center; font-weight: bold; margin-top: 20px;">Batafsil ma'lumot (Kun.uz)</div>
+    </div>
+
+    <h2 class="section-title" id="t-extra">FOYDALI PLATFORMALAR</h2>
+    <div class="extra-grid">
+        <a href="https://t.me/werrrzood" class="extra-item"><i class="fab fa-telegram"></i><br>Telegram</a>
+        <a href="https://instagram.com/werrrzood" class="extra-item"><i class="fab fa-instagram"></i><br>Instagram</a>
+        <a href="https://youtube.com" class="extra-item"><i class="fab fa-youtube"></i><br>YouTube</a>
+        <a href="https://yandex.uz" class="extra-item"><i class="fab fa-yandex"></i><br>Yandex</a>
+        <a href="https://www.pubg.com" class="extra-item"><i class="fas fa-gamepad"></i><br>PUBG Mobile</a>
+        <a href="https://kun.uz" class="extra-item"><i class="fas fa-newspaper"></i><br>Kun.uz</a>
+    </div>
+
+    <footer id="footer">
+        &copy; 2026 SSH BRAND | O'zbekiston IT Kelajagi
+    </footer>
+</div>
+
+<script>
+    const data = {
+        uz: {
+            bio: "Senior Full-Stack Developer", tproj: "ASOSIY LOYIHALAR", tnews: "OAVDA MEN HAQIMDA", textra: "FOYDALI PLATFORMALAR",
+            p1t: "SWA VIDEO PLATFORMA", p1d: "Yuqori sifatli video kontentlar va streaming olami.",
+            p2t: "ONLINE SHASHKA", p2d: "Real-vaqtda multiplayer shashka o'yini va strategiya.",
+            p3t: "CHAT AL GPT BOT", p3d: "Sun'iy intellekt asosida ishlovchi eng aqlli yordamchi.",
+            nh: "Yosh dasturchi Sherzod Suvonovning IT olamidagi katta sakrashi!",
+            np: "Kuni kecha Toshkent Davlat Iqtisodiyot Universiteti talabasi Sherzod Suvonov tomonidan yaratilgan loyihalar e'tirof etildi."
+        },
+        ru: {
+            bio: "Senior Full-Stack Разработчик", tproj: "ОСНОВНЫЕ ПРОЕКТЫ", tnews: "ОБО МНЕ В СМИ", textra: "ПОЛЕЗНЫЕ ПЛАТФОРМЫ",
+            p1t: "SWA ВИДЕО ПЛАТФОРМА", p1d: "Мир высококачественного видео контента и стриминга.",
+            p2t: "ОНЛАЙН ШАШКИ", p2d: "Мультиплеерная игра в шашки и стратегия в реальном времени.",
+            p3t: "CHAT AL GPT БОТ", p3d: "Самый умный помощник на базе искусственного интеллекта.",
+            nh: "Большой прорыв молодого разработчика Шерзода Сувонова!",
+            np: "Проекты студента Ташкентского Государственного Экономического Университета Шерзода Сувонова получили широкое признание."
+        }
+    };
+
+    function setLang(l) {
+        localStorage.setItem('lang', l);
+        document.querySelectorAll('.l-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(l + '-btn').classList.add('active');
+        const t = data[l];
+        document.getElementById('bio').innerText = t.bio;
+        document.getElementById('t-proj').innerText = t.tproj;
+        document.getElementById('t-news').innerText = t.tnews;
+        document.getElementById('t-extra').innerText = t.textra;
+        document.getElementById('p1-t').innerText = t.p1t; document.getElementById('p1-d').innerText = t.p1d;
+        document.getElementById('p2-t').innerText = t.p2t; document.getElementById('p2-d').innerText = t.p2d;
+        document.getElementById('p3-t').innerText = t.p3t; document.getElementById('p3-d').innerText = t.p3d;
+        document.getElementById('n-h').innerText = t.nh; document.getElementById('n-p').innerText = t.np;
+    }
+
+    window.onload = () => {
+        const saved = localStorage.getItem('lang') || 'uz';
+        setLang(saved);
+    };
+</script>
+</body>
+</html>
